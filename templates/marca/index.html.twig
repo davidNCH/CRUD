@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marca {% endblock %}
+
+{% block body %}
+
+<h1></h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for marca in marcas %}
+            <tr>
+                <td>{{ marca.id }}</td>
+                <td>{{ marca.nombre }}</td>
+                <td>{{ marca.ciudad }}</td>
+                <td>
+                    <a class="linkver" href="{{ path('marca_show', {'id': marca.id}) }}">Ver</a>
+                    <a  class="linkeditar" href="{{ path('marca_edit', {'id': marca.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a  class="linkcrearnuevo" href="{{ path('marca_new') }}">Crear nuevo</a>
+{% endblock %}

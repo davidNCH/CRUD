@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Venta{% endblock %}
+
+{% block body %}
+    <h1 class="h1titulosdepaginas">Venta</h1>
+<div class="tabladeeditar">
+
+    <table  id="tabladiseño" class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ventum.id }}</td>
+            </tr>
+            <tr>
+                <th>Dni</th>
+                <td>{{ ventum.dni }}</td>
+            </tr>
+            <tr>
+                <th>Codcoche</th>
+                <td>{{ ventum.codcoche }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ ventum.color }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="diveditar">
+    <a class="botonregresar" href="{{ path('venta_index') }}">Regresar</a>
+
+    <a class="botoneditar" href="{{ path('venta_edit', {'id': ventum.id}) }}">Editar</a>
+
+    {{ include('venta/_delete_form.html.twig') }}
+</div>
+{% endblock %}

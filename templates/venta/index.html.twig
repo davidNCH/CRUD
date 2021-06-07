@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Venta index{% endblock %}
+
+{% block body %}
+    <h1>        </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dni</th>
+                <th>Codcoche</th>
+                <th>Color</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+
+       {% for ventum in ventas %}
+            <tr>
+                <td>{{ ventum.id }}</td>
+                <td>{{ ventum.dni }}</td>
+                <td>{{ ventum.codcoche }}</td>
+                <td>{{ ventum.color }}</td>
+                <td>
+                    <a class="linkver" href="{{ path('venta_show', {'id': ventum.id}) }}">Ver</a>
+                    <a class="linkeditar" href="{{ path('venta_edit', {'id': ventum.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="linkcrearnuevo" href="{{ path('venta_new') }}">Crear nuevo</a>
+{% endblock %}

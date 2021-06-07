@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cliente {% endblock %}
+
+{% block body %}
+    <h1>  </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idcliente</th>
+                <th>Dni</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Ciudad</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.idcliente }}</td>
+                <td>{{ cliente.dni }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.apellido }}</td>
+                <td>{{ cliente.ciudad }}</td>
+                <td>
+                   <a class="linkver" href="{{ path('cliente_show', {'idcliente': cliente.idcliente}) }}">Ver</a>
+                   <a class="linkeditar" href="{{ path('cliente_edit', {'idcliente': cliente.idcliente}) }}">Editar</a>
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">No se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="linkcrearnuevo" href="{{ path('cliente_new') }}">Crear Nuevo</a>
+{% endblock %}

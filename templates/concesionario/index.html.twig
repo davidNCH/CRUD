@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Concesionario index{% endblock %}
+
+{% block body %}
+    <h1> </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for concesionario in concesionarios %}
+            <tr>
+                <td>{{ concesionario.id }}</td>
+                <td>{{ concesionario.nombre }}</td>
+                <td>{{ concesionario.ciudad }}</td>
+                <td>
+                    <a class="linkver" href="{{ path('concesionario_show', {'id': concesionario.id}) }}">Ver</a>
+                    <a class="linkeditar" href="{{ path('concesionario_edit', {'id': concesionario.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="linkcrearnuevo" href="{{ path('concesionario_new') }}">Crear nuevo</a>
+{% endblock %}

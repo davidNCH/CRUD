@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenido!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+           <link rel="stylesheet" href="{{ asset('css/estilo.css')  }}"  type="text/css"/>
+           <link rel="stylesheet" href="{{ asset('css/estilobase.css')  }}"  type="text/css"/>
+        {% endblock %}
+
+        {% block javascripts %}
+       {% endblock %}
+    </head>
+    <body>
+        <nav>
+            <a href="{{ path('base_index') }}">Inicio</a>
+            <a href="{{ path('pag_clientes') }}">Clientes</a>
+            <a href="{{ path('marca_index') }}">Marcas</a>
+            <a href="{{ path('pag_concesionario')}}">Consecionario</a>
+            <a href="{{ path('venta_index') }}">Ventas</a>
+            <div class="animation start-home"></div>
+        </nav>
+        {% block body %}
+            <img src="{{ asset('img/img.jpg') }}" alt="hola carro" style="width:100%">
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}nuevo Concesionario{% endblock %}
+
+{% block body %}
+    <h1 class="h1titulosdepaginas">Crear nuevo Concesionario</h1>
+
+    {{ include('concesionario/_form.html.twig') }}
+
+    <a class="botonregresar" href="{{ path('concesionario_index') }}">Regresar</a>
+{% endblock %}
